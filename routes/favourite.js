@@ -63,12 +63,11 @@ router.post("/removeFromFavourite", (req, res) => {
 
 
 router.post("/getFavouredMovie", (req, res) => {
-
     //Need to find all of the Users that I am subscribing to From Subscriber Collection 
     Favourite.find({ 'userFrom': req.body.userFrom })
-        .exec((err, favorites) => {
+        .exec((err, favourites) => {
             if (err) return res.status(400).send(err);
-            return res.status(200).json({ success: true, favorites })
+            return res.status(200).json({ success: true, favourites })
         })
 });
 
